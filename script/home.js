@@ -26,7 +26,7 @@ const Name = document.getElementById("Name");
 
 Name.innerHTML = `Welcome ${localStorage.getItem("userName")}`;
 setTimeout(() => {
-    localStorage.removeItem("userName");
+  localStorage.removeItem("userName");
 }, 5 * 60 * 1000);
 let cart = [];
 
@@ -50,11 +50,19 @@ async function fetchProducts(category) {
                 <img src="${product.image}" alt="${product.title}">
                 <h3>${product.title}</h3>
                 <p>$${product.price.toFixed(2)}</p>
+                 <button class="view-details-btn" 
+    data-title="${product.title}" 
+    data-image="${product.image}" 
+    data-description="${product.description}" 
+    data-price="${product.price}">
+    View Details
+</button>
                 <button onclick="addToCart(${product.id}, '${product.title}', ${
           product.price
         }, '${product.image}')">
                     Add to Cart
                 </button>
+               
             </div>
         `
       )
@@ -151,6 +159,32 @@ function showNotification(message) {
   document.body.appendChild(notification);
 
   setTimeout(() => notification.remove(), 3000);
+}
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("view-details-btn")) {
+    let button = event.target;
+
+    showProductDetails({
+      title: button.getAttribute("data-title"),
+      image: button.getAttribute("data-image"),
+      description: button.getAttribute("data-description"),
+      price: button.getAttribute("data-price"),
+    });
+  }
+});
+
+function showProductDetails(product) {
+  document.getElementById("modal-title").textContent = product.title;
+  document.getElementById("modal-image").src = product.image;
+  document.getElementById("modal-description").textContent =
+    product.description;
+  document.getElementById("modal-price").textContent = "$" + product.price;
+ 
+  document.getElementById("product-modal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("product-modal").style.display = "none";
 }
 
 window.onscroll = function () {
