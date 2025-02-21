@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign UP</title>
+    <link rel="stylesheet" href="style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form action="#">
+          <h1>Create Account</h1>
+          <span>or use your email for registration</span>
+          <input id="signupInputName" type="text" placeholder="Name" />
+          <p id="signup-name" style="display: none; color: red; height: 1px">
+            Please enter a valid name
+          </p>
+          <input id="signupInputEmail" type="email" placeholder="Email" />
+          <p id="signup-email" style="display: none; color: red; height: 1px">
+            Please enter a valid email
+          </p>
+          <input
+            id="signupInputPassword"
+            type="password"
+            placeholder="Password"
+          />
+          <p
+            id="signup-password"
+            style="display: none; color: red; height: 11px"
+          >
+            Password must be 8 character at least
+          </p>
+          <button id="signupButton">Sign Up</button>
+          <div
+          id="messageBox"
+          style="
+            display: none;
+            font-size: 14px;
+            margin-top: 10px;
+            font-weight: bold;
+          "
+        ></div>
+        </form>
+      </div>
+    
+
+      <div class="form-container sign-in-container">
+        <form action="#">
+          <h1>Sign in</h1>
+
+          <span>or use your account</span>
+          <br />
+          <input id="signInEmail" type="email" placeholder="Email" />
+          <p id="signin-email" style="display: none; color: red; height: 1px">
+            Please enter a valid email
+          </p>
+          <input id="signInPassword" type="password" placeholder="Password" />
+          <p
+            id="signin-password"
+            style="display: none; color: red; height: 11px"
+          >
+            Password must be 8 character at least
+          </p>
+
+          <button id="signinButton">Sign In</button>
+          <div
+          id="messageBoxSignin"
+          style="
+            display: none;
+            font-size: 14px;
+            margin-top: 10px;
+            font-weight: bold;
+          "
+        ></div>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>
+              To keep connected with us please login with your personal info
+            </p>
+            <button class="ghost" id="signIn">Sign In</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Hello, Friend!</h1>
+            <p>Enter your personal details and start journey with us</p>
+            <button class="ghost" id="signUp">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/script/script.js"></script>
+  </body>
+</html>
